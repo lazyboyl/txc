@@ -1,0 +1,23 @@
+server:
+  port: 11100
+
+
+spring:
+  servlet:
+    multipart:
+      # 单个文件上传的最大值
+      max-file-size: 100MB
+      # 多个文件上传的总的最大值
+      max-request-size: 500MB
+  application:
+    name: produce-demo
+
+
+eureka:
+  client:
+    service-url:
+      # 注册中心地址
+      defaultZone: http://127.0.0.1:2100/eureka/
+  instance:
+    # 配置在eureka上status栏显示的信息
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
